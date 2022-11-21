@@ -26,7 +26,7 @@ class ProjectRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'thumbnail' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }
