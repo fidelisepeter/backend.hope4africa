@@ -41,14 +41,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('blog', [App\Http\Controllers\Api\BlogController::class, 'index'])->withoutMiddleware('auth:sanctum')->name('blog.index');
     Route::post('blog', [App\Http\Controllers\Api\BlogController::class, 'store'])->name('blog.store');
     Route::get('blog/{blog}', [App\Http\Controllers\Api\BlogController::class, 'show'])->withoutMiddleware('auth:sanctum')->name('blog.show');
-    Route::match(['put', 'patch'], 'blog/{blog}', [App\Http\Controllers\Api\BlogController::class, 'update'])->name('blog.update');
+    Route::match(['put', 'patch','post'], 'blog/{blog}', [App\Http\Controllers\Api\BlogController::class, 'update'])->name('blog.update');
     Route::delete('blog/{blog}', [App\Http\Controllers\Api\BlogController::class, 'destroy'])->name('blog.destroy');
 
     //Project Endpoints
     Route::get('project', [App\Http\Controllers\Api\ProjectController::class, 'index'])->withoutMiddleware('auth:sanctum')->name('project.index');
     Route::post('project', [App\Http\Controllers\Api\ProjectController::class, 'store'])->name('project.store');
     Route::get('project/{project}', [App\Http\Controllers\Api\ProjectController::class, 'show'])->withoutMiddleware('auth:sanctum')->name('project.show');
-    Route::match(['put', 'patch'], 'project/{project}', [App\Http\Controllers\Api\ProjectController::class, 'update'])->name('project.update');
+    Route::match(['put', 'patch','post'], 'project/{project}', [App\Http\Controllers\Api\ProjectController::class, 'update'])->name('project.update');
     Route::delete('project/{project}', [App\Http\Controllers\Api\ProjectController::class, 'destroy'])->name('project.destroy');
 
     //Logout & Refresh

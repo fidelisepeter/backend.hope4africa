@@ -32,6 +32,7 @@ class BlogController extends Controller
      */
     public function store(BlogPostRequest $request)
     {
+        Log::alert($request->all());
         //Store thumbnail
         if ($files = $request->file('thumbnail')) {
             // Define upload path
@@ -49,7 +50,7 @@ class BlogController extends Controller
             'author_id' => $user->id,
             'content' => $request->content,
             'tags' => $request->tags,
-            'thumbnail' => $thumbnail,
+            'thumbnail' => $thumbnail ?? '',
         ]);
 
         return ResponseHelper::success('Post Created Successfully', new BlogPostResource($response), 201);

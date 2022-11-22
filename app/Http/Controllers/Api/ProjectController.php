@@ -43,7 +43,7 @@ class ProjectController extends Controller
         $response = Project::create([
             'title' => $request->title,
             'description' => $request->description,
-            'thumbnail' => $thumbnail,
+            'thumbnail' => $thumbnail ?? '',
         ]);
 
         return ResponseHelper::success('Project Created Successfully', new ProjectResource($response), 201);
