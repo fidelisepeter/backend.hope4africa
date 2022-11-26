@@ -67,7 +67,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Project $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(ProjectRequest $request, Project $project)
     {
          //Store thumbnail
          if ($files = $request->file('thumbnail')) {

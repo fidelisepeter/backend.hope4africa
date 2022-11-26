@@ -74,7 +74,7 @@ class BlogController extends Controller
      * @param  App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(BlogPostRequest $request, Blog $blog)
     {
         //Store thumbnail
         if ($files = $request->file('thumbnail')) {
